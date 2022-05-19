@@ -4,9 +4,9 @@ team_wins = []
 names_and_wins = {}
 games_played = 0
 
-# Asks for the number of teams that are going to be in the tournament
-# and checks to make sure there are at least 2 teams
-# It is assumed that there will be an even number of teams
+"""Asks for the number of teams that are going to be in the tournament
+and checks to make sure there are at least 2 teams
+It is assumed that there will be an even number of teams"""
 while True:
     num_teams = input("Enter the number of teams in the tournament: ")
     if int(num_teams) >= 2:
@@ -14,8 +14,8 @@ while True:
     else:
         print("The minimum number of teams if 2, try again.")
 
-# Asks for the names of each team and appends it to an array
-# Checks that each team is at most two words and at last 2 letters
+"""Asks for the names of each team and appends it to an array
+Checks that each team is at most two words and at last 2 letters"""
 for i in range(1, int(num_teams) + 1):
     while True:
         team = input(f"Enter the name for team #{i}: ")
@@ -28,8 +28,8 @@ for i in range(1, int(num_teams) + 1):
         
     team_names.append(team)
 
-# Asks for the number of games each team has played when each team has 
-# played each other at least once in the regular season
+"""Asks for the number of games each team has played when each team has 
+played each other at least once in the regular season"""
 while True:
     games_played = input("Enter the number of games played by each team: ")
     if int(games_played) < len(team_names) - 1:
@@ -37,9 +37,9 @@ while True:
     else: 
         break
 
-# Asks for the number of wins each team had in the regular season
-# and checks that its not greater then the number of games played
-# then appends it to an array
+"""Asks for the number of wins each team had in the regular season
+and checks that its not greater then the number of games played
+then appends it to an array"""
 for i in team_names:
     while True:
         wins = input(f"Enter the number of wins Team {i} had: ")
@@ -59,9 +59,9 @@ for i, j in enumerate(team_names):
 # Sorts the dictionary by value in ascending order 
 wins_sorted = {k: v for k, v in sorted(names_and_wins.items(), key=lambda item: item[1])}
 
-# Gets key from the dictionary and puts them into an array
-# Then pairs up the teams with the most wins to the team 
-# with the least wins and then prints it and removes it from the array
+"""Gets key from the dictionary and puts them into an array
+Then pairs up the teams with the most wins to the team 
+with the least wins and then prints it and removes it from the array"""
 keys = list(wins_sorted.keys())
 while len(keys) > 1:
     least = keys[0]
